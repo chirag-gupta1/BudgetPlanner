@@ -15,8 +15,12 @@ require('dotenv').config();
 const MongoStore = connectMongo.default || connectMongo;
 
 // Mongo Connection URI (must be defined before using in session store)
-const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_CLUSTER}/${process.env.MONGO_DB}?retryWrites=true&w=majority`;
+const uri = process.env.MONGODB_URI;
 
+if (!uri) {
+  console.error("MONGODB_URI is not set. Check your environment variables.");
+  process.exit(1);
+}
 
 // Models setup
 const Expense = require('./models/Expense');
