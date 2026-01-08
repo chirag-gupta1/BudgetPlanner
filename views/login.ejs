@@ -1,0 +1,41 @@
+<!--
+Chirag Gupta
+Budget Planner
+-->
+
+<%- include('partials/header', { activePage: 'login' }) %>
+
+<div class="container">
+  <div class="form-card small">
+    <h2>Login</h2>
+
+    <!-- error if login fails -->
+    <% if (error) { %>
+      <div class="errors"><%= error %></div>
+    <% } %>
+
+    <!-- Login form -->
+    <form action="/login" method="POST">
+      <label>
+        Username
+        <input name="username" placeholder="Enter your username" required>
+      </label>
+
+      <label>
+        Password
+        <input type="password" name="password" placeholder="Enter your password" required>
+      </label>
+
+      <div class="form-actions">
+        <button class="btn primary" type="submit">Login</button>
+      </div>
+    </form>
+
+    <p class="muted">
+      Don’t have an account?
+      <a href="/register">Register</a>
+    </p>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

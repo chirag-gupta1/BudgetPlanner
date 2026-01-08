@@ -1,0 +1,41 @@
+<!--
+Chirag Gupta
+Budget Planner
+-->
+
+<%- include('partials/header', { activePage: 'register' }) %>
+
+<div class="container">
+  <div class="form-card small">
+    <h2>Create Account</h2>
+
+    <!-- if registration fails -->
+    <% if (error) { %>
+      <div class="errors"><%= error %></div>
+    <% } %>
+
+    <!-- Registration form -->
+    <form action="/register" method="POST">
+      <label>
+        Username
+        <input name="username" placeholder="Choose a username" required>
+      </label>
+
+      <label>
+        Password
+        <input type="password" name="password" placeholder="Create a password" required minlength="5">
+      </label>
+
+      <div class="form-actions">
+        <button class="btn primary" type="submit">Register</button>
+      </div>
+    </form>
+
+    <p class="muted">
+      Already have an account?
+      <a href="/login">Login</a>
+    </p>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

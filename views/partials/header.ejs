@@ -1,0 +1,42 @@
+<!--
+Chirag Gupta
+Budget Planner
+-->
+
+<!-- header.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Planner</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <!-- Brand logo -->
+      <a class="brand" href="/">BudgetPlanner</a>
+
+      <!-- Navigation links -->
+      <div class="navlinks">
+        <a href="/" class="<%= activePage === 'home' ? 'active' : '' %>">Home</a>
+        <a href="/add" class="<%= activePage === 'add' ? 'active' : '' %>">Expenses</a>
+        <a href="/paychecks" class="<%= activePage === 'paychecks' ? 'active' : '' %>">Income</a>
+        <a href="/download/txt" class="btn">Download Expenses</a>
+
+        <% if (session && session.userId) { %>
+          <!-- If user logged in -->
+          <div class="user-section">
+            <span class="muted">Hello, <%= session.username %></span>
+            <a href="/logout">Logout</a>
+          </div>
+        <% } else { %>
+          <!-- If not logged in -->
+          <a href="/login">Login</a>
+          <a href="/register">Register</a>
+        <% } %>
+      </div>
+    </div>
+  </div>

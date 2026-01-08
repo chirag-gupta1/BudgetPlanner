@@ -1,0 +1,79 @@
+<!--
+Chirag Gupta
+Budget Planner
+-->
+
+<%- include('partials/header', { activePage: 'paychecks' }) %>
+
+<div class="container">
+  <!-- Adding paycheck form -->
+  <div class="form-card small">
+    <h2>Add Income</h2>
+
+    <form action="/paychecks" method="POST">
+      <label>
+        Amount
+        <input type="number" name="amount" step="0.01" placeholder="e.g. 1200.00" required>
+      </label>
+
+      <label>
+        Description
+        <input name="description" placeholder="e.g. Salary, Part-time job, Bonus">
+      </label>
+
+      <div class="form-actions">
+        <button class="btn primary" type="submit">Add Income</button>
+      </div>
+    </form>
+  </div>
+
+    <!-- Displaying all paychecks -->
+  <div class="list-section" style="margin-top: 18px;">
+  <div class="list-header">
+    <div class="list-heading">
+      <h3 class="list-title">Income</h3>
+      <p class="list-subtitle">
+        All your paychecks in one place.
+      </p>
+    </div>
+
+    <div class="filters">
+    </div>
+  </div>
+
+  <% if (paychecks.length > 0) { %>
+    <div class="item-list">
+      <% paychecks.forEach(p => { %>
+        <article class="item-card item-income">
+          <div class="item-main">
+            <div class="item-header-row">
+              <h4 class="item-title">
+                <%= p.description && p.description.trim() !== '' ? p.description : 'Income' %>
+              </h4>
+            </div>
+
+            <div class="item-meta">
+              <span class="item-meta-label">Date:</span>
+              <span><%= new Date(p.date).toISOString().slice(0, 10) %></span>
+            </div>
+          </div>
+
+          <div class="item-side">
+            <div class="item-amount positive">
+              +$<%= p.amount.toFixed(2) %>
+            </div>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+
+    <p class="muted">Total Income: $<%= totalPay.toFixed(2) %></p>
+  <% } else { %>
+    <p class="muted">No income recorded yet.</p>
+  <% } %>
+</div>
+
+
+</div>
+
+<%- include('partials/footer') %>

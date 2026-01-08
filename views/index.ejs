@@ -1,0 +1,114 @@
+<!--
+Chirag Gupta
+Budget Planner
+-->
+
+<%- include('partials/header', { activePage: 'home' }) %>
+
+<div class="container">
+  <!-- Dashboard cards -->
+  <div class="dashboard">
+    <div class="card">
+      <h3>Total Income</h3>
+      <div class="big">$<%= totalIncome.toFixed(2) %></div>
+    </div>
+
+    <div class="card">
+      <h3>Total Expenses</h3>
+      <div class="big">$<%= total.toFixed(2) %></div>
+    </div>
+
+    <% if (savings >= 0) { %>
+      <div class="card positive">
+        <h3>Savings</h3>
+        <div class="big">$<%= savings.toFixed(2) %></div>
+      </div>
+    <% } else { %>
+      <div class="card negative">
+        <h3>Savings</h3>
+        <div class="big">$<%= savings.toFixed(2) %></div>
+      </div>
+    <% } %>
+  </div>
+
+  <!-- Budget suggestion box -->
+  <div class="suggestion">
+    <div class="suggestion-box">
+      <strong>Suggestion:</strong> <%= suggestion %>
+    </div>
+  </div>
+
+  <!-- Expense table section -->
+  <div class="list-section">
+  <div class="list-header">
+    <!-- Left: title + small subtitle -->
+    <div class="list-heading">
+      <h3 class="list-title">Expenses</h3>
+      <p class="list-subtitle">
+        All your recorded spending, grouped by category.
+      </p>
+    </div>
+
+    <!-- Right: category filters -->
+    <div class="filters">
+  <!-- "All" button -->
+  <a
+    href="/"
+    class="filter <%= !activeCategory ? 'active' : '' %>"
+  >
+    All
+  </a>
+
+  <!-- Dynamic category chips from your categories array -->
+  <% if (categories && categories.length) { %>
+    <% categories.forEach(function(cat) { %>
+      <a
+        href="/?category=<%= encodeURIComponent(cat) %>"
+        class="filter <%= activeCategory === cat ? 'active' : '' %>"
+      >
+        <%= cat %>
+      </a>
+    <% }) %>
+  <% } %>
+</div>
+
+  </div>
+
+  <!-- Expense list cards -->
+  <% if (expenses.length > 0) { %>
+    <div class="item-list">
+      <% expenses.forEach(e => { %>
+        <article class="item-card item-expense">
+          <div class="item-main">
+            <div class="item-header-row">
+              <h4 class="item-title"><%= e.title %></h4>
+
+              <% if (e.category) { %>
+                <span class="item-pill"><%= e.category %></span>
+              <% } %>
+            </div>
+
+            <div class="item-meta">
+              <span class="item-meta-label">Date:</span>
+              <span><%= e.date %></span>
+            </div>
+          </div>
+
+          <div class="item-side">
+            <div class="item-amount negative">
+              -$<%= e.amount.toFixed(2) %>
+            </div>
+
+            <button class="btn delete" data-id="<%= e._id %>">Delete</button>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <p class="muted">No expenses recorded yet. Try adding one.</p>
+  <% } %>
+</div>
+
+</div>
+
+<%- include('partials/footer') %>

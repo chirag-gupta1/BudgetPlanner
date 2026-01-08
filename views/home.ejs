@@ -1,0 +1,105 @@
+<!--
+Chirag Gupta
+Budget Planner
+-->
+
+<%- include('partials/header', { activePage: 'home' }) %>
+
+<div class="container home-wrapper">
+  <!-- HERO: short, focused message -->
+  <section class="hero">
+    <div class="hero-main">
+      <div class="hero-kicker">
+        Simple Budgeting · Built for real life
+      </div>
+
+      <h1 class="hero-title">
+        See where your money goes.
+        Plan where it should go.
+      </h1>
+
+      <p class="hero-subtitle">
+        Budget Planner keeps your income, expenses, and savings in one tidy
+        view. No spreadsheets, no confusion — just a clear picture of your
+        money habits.
+      </p>
+
+      <div class="hero-actions">
+        <a href="/register" class="btn primary">Get started free</a>
+        <a href="/login" class="btn secondary">Log in</a>
+      </div>
+
+      <div class="hero-points">
+        <span><span class="hero-dot"></span> Organized by categories you choose</span>
+        <span><span class="hero-dot"></span> See savings automatically calculated</span>
+        <span><span class="hero-dot"></span> Export data when you need it</span>
+      </div>
+    </div>
+
+    <div class="hero-side">
+      <div class="hero-side-card">
+        <div class="hero-side-header">
+          <span>What you’ll track</span>
+          <span class="hero-tag">Preview</span>
+        </div>
+
+        <div class="hero-feature-groups">
+          <div class="hero-feature-group">
+            <strong>Essentials</strong>
+            <span>Rent · Groceries · Transport · Bills</span>
+          </div>
+          <div class="hero-feature-group">
+            <strong>Goals</strong>
+            <span>Emergency fund · Savings · Debt</span>
+          </div>
+          <div class="hero-feature-group">
+            <strong>Extras</strong>
+            <span>Eating out · Shopping · Fun &amp; subscriptions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES: organized & categorized info -->
+  <section class="feature-section">
+    <div class="feature-section-inner">
+      <h2 class="section-title">Everything you need to stay on budget</h2>
+      <p class="section-subtitle">
+        Three simple pillars: track what you spend, organize it by category, and
+        see how your savings improve over time.
+      </p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon track">📒</div>
+          <h3>Track income &amp; expenses</h3>
+          <p>
+            Add paychecks and expenses with date, amount and category. Your
+            totals and savings are calculated for you automatically.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon organize">🏷️</div>
+          <h3>Organized by categories</h3>
+          <p>
+            Separate essentials, goals and extras so you instantly see where
+            your money is really going each month.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon improve">📊</div>
+          <h3>Improve your savings</h3>
+          <p>
+            Your dashboard highlights savings and gives gentle suggestions when
+            spending starts to climb too high in any area.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%- include('partials/footer') %>

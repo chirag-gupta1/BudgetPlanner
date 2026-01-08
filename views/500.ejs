@@ -1,0 +1,28 @@
+<!--
+Chirag Gupta
+Budget Planner
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>500 - Server Error</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <main class="container">
+    <h1>500 - Server Error</h1>
+    <p>Something went wrong on our side. Please try again later.</p>
+
+    <% if (error) { %>
+      <!-- showing error message only console -->
+      <pre><%= error.message %></pre>
+    <% } %>
+
+    <a class="btn primary" href="/">Go Home</a>
+  </main>
+</body>
+</html>
