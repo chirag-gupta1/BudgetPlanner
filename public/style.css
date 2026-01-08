@@ -899,3 +899,57 @@ main.container h1 {
     padding-inline: 14px;
   }
 }
+/* Mobile First Responsiveness */
+@media (max-width: 768px) {
+
+  .dashboard-summary {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .summary-card {
+    width: 100%;
+    text-align: left;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .filters a.filter {
+    flex: 1;
+    text-align: center;
+  }
+
+  .list-section {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .expense-row,
+  .income-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .expense-actions,
+  .income-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .form-card {
+    padding: 14px;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
