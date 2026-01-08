@@ -17,6 +17,7 @@ const userSchema = new mongoose.Schema({
     unique: true,   // no duplicate usernames allowed
     trim: true      // remove spaces around username
   },
+  email: { type: String, unique: true, required: true },
   password: { 
     type: String, 
     required: true 
